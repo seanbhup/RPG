@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Movement\Mover.cs" />
      <Compile Include="Assets\Scripts\Core\FollowCamera.cs" />
+     <Compile Include="Assets\Scripts\Control\PlayerController.cs" />
      <None Include="Assets\Asset Packs\Synty - Polygon Student Sample\README - Usage Rights for these assets.txt" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2020.1.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
