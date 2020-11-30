@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Combat;
+using RPG.Core;
+using RPG.Movement;
 using UnityEngine;
 
 namespace RPG.Control
@@ -8,18 +11,50 @@ namespace RPG.Control
     {
         [SerializeField] float chaseDistance = 5f;
 
+        Fighter fighter;
+        Health health;
+        Mover mover;
+        GameObject player;
+
+        Vector3 guardPosition; 
+
+        private void Start() {
+            fighter = GetComponent<Fighter>();
+            health = GetComponent<Health>();
+            mover = GetComponent<Mover>();
+            player = GameObject.FindWithTag("Player");
+            
+            guardPosition = transform.position;
+        }
+
         private void Update()
         {
-            if (DistanceToPlayer() < chaseDistance)
+            if (health.IsDead()) return;
+
+            if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
             {
-                print(gameObject.name + " Should Chase");
+                fighter.Attack(player);
+                // print(gameObject.name + " Should Chase");
+            }
+            else
+            {
+                mover.StartMoveAction(guardPosition);
+                // fighter.Cancel();
             }
         }
 
-        private float DistanceToPlayer()
+        private bool InAttackRangeOfPlayer()
         {
-            GameObject player = GameObject.FindWithTag("Player");
-            return Vector3.Distance(player.transform.position, transform.position);
+            float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+            return distanceToPlayer < chaseDistance;
+        }
+
+        //called by unity
+        private void OnDrawGizmosSelected() {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, chaseDistance);
+            
+
         }
     }
 

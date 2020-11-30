@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: healthPoints
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1280288261, guid: 107d4c14f590249b6a4edf9d3979d713, type: 3}
+      propertyPath: m_Speed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5752351148510393224, guid: 107d4c14f590249b6a4edf9d3979d713, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.935
