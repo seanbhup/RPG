@@ -38,7 +38,7 @@ namespace RPG.Control
                     continue; //continue means go to next thing in loop
                 }
 
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButton(0))
                 {
                     GetComponent<Fighter>().Attack(target.gameObject);
                 }
