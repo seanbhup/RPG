@@ -1,0 +1,3 @@
+678eb9fbb47706b26dfd234b5a3c51ff filter=lfs diff=lfs merge=lfs -text
+a178f5df6e98f5e4aeefd198b328716f filter=lfs diff=lfs merge=lfs -text
+*.doc filter=lfs diff=lfs merge=lfs -text
