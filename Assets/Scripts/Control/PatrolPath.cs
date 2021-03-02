@@ -26,7 +26,6 @@ namespace RPG.Control
             }
             return i + 1;
         }
-
         public Vector3 GetWaypoint(int i)
         {
             return transform.GetChild(i).position;
@@ -35,5 +34,3 @@ namespace RPG.Control
         
     }
 }
-
-
